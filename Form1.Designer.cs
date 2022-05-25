@@ -32,13 +32,14 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnPlay = new System.Windows.Forms.Button();
             this.BtnMods = new System.Windows.Forms.Button();
-            this.ModPanel = new System.Windows.Forms.Panel();
-            this.BtnAdd = new System.Windows.Forms.Button();
-            this.DisabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
-            this.EnabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
-            this.labelEnabled = new System.Windows.Forms.Label();
-            this.labelDisabled = new System.Windows.Forms.Label();
             this.BtnGitHub = new System.Windows.Forms.Button();
+            this.ModPanel = new System.Windows.Forms.Panel();
+            this.BtnRemove = new System.Windows.Forms.Button();
+            this.labelDisabled = new System.Windows.Forms.Label();
+            this.labelEnabled = new System.Windows.Forms.Label();
+            this.BtnAdd = new System.Windows.Forms.Button();
+            this.EnabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
+            this.DisabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1.SuspendLayout();
             this.ModPanel.SuspendLayout();
             this.SuspendLayout();
@@ -102,94 +103,6 @@
             this.BtnMods.UseVisualStyleBackColor = false;
             this.BtnMods.Click += new System.EventHandler(this.BtnMods_Click);
             // 
-            // ModPanel
-            // 
-            this.ModPanel.BackColor = System.Drawing.Color.Transparent;
-            this.ModPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ModPanel.Controls.Add(this.labelDisabled);
-            this.ModPanel.Controls.Add(this.labelEnabled);
-            this.ModPanel.Controls.Add(this.BtnAdd);
-            this.ModPanel.Controls.Add(this.EnabledModListBox);
-            this.ModPanel.Controls.Add(this.DisabledModListBox);
-            this.ModPanel.Location = new System.Drawing.Point(273, 0);
-            this.ModPanel.Name = "ModPanel";
-            this.ModPanel.Size = new System.Drawing.Size(991, 681);
-            this.ModPanel.TabIndex = 1;
-            this.ModPanel.Visible = false;
-            // 
-            // BtnAdd
-            // 
-            this.BtnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.BtnAdd.ForeColor = System.Drawing.Color.White;
-            this.BtnAdd.Location = new System.Drawing.Point(17, 609);
-            this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(132, 46);
-            this.BtnAdd.TabIndex = 4;
-            this.BtnAdd.Text = "Add";
-            this.BtnAdd.UseCompatibleTextRendering = true;
-            this.BtnAdd.UseVisualStyleBackColor = false;
-            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
-            // 
-            // DisabledModListBox
-            // 
-            this.DisabledModListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.DisabledModListBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DisabledModListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DisabledModListBox.Location = new System.Drawing.Point(17, 321);
-            this.DisabledModListBox.Name = "DisabledModListBox";
-            this.DisabledModListBox.Size = new System.Drawing.Size(956, 282);
-            this.DisabledModListBox.TabIndex = 0;
-            // 
-            // EnabledModListBox
-            // 
-            this.EnabledModListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.EnabledModListBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.EnabledModListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.EnabledModListBox.Location = new System.Drawing.Point(17, 18);
-            this.EnabledModListBox.Name = "EnabledModListBox";
-            this.EnabledModListBox.Size = new System.Drawing.Size(956, 279);
-            this.EnabledModListBox.TabIndex = 0;
-            // 
-            // labelEnabled
-            // 
-            this.labelEnabled.AutoSize = true;
-            this.labelEnabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.labelEnabled.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelEnabled.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.labelEnabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEnabled.ForeColor = System.Drawing.Color.White;
-            this.labelEnabled.Location = new System.Drawing.Point(12, -3);
-            this.labelEnabled.Name = "labelEnabled";
-            this.labelEnabled.Size = new System.Drawing.Size(188, 33);
-            this.labelEnabled.TabIndex = 5;
-            this.labelEnabled.Text = "Enabled Mods";
-            this.labelEnabled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelDisabled
-            // 
-            this.labelDisabled.AutoSize = true;
-            this.labelDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.labelDisabled.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelDisabled.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.labelDisabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDisabled.ForeColor = System.Drawing.Color.White;
-            this.labelDisabled.Location = new System.Drawing.Point(12, 300);
-            this.labelDisabled.Name = "labelDisabled";
-            this.labelDisabled.Size = new System.Drawing.Size(195, 33);
-            this.labelDisabled.TabIndex = 6;
-            this.labelDisabled.Text = "Disabled Mods";
-            this.labelDisabled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BtnGitHub
             // 
             this.BtnGitHub.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -210,6 +123,118 @@
             this.BtnGitHub.UseCompatibleTextRendering = true;
             this.BtnGitHub.UseVisualStyleBackColor = false;
             this.BtnGitHub.Click += new System.EventHandler(this.BtnGitHub_Click);
+            // 
+            // ModPanel
+            // 
+            this.ModPanel.BackColor = System.Drawing.Color.Transparent;
+            this.ModPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ModPanel.Controls.Add(this.BtnRemove);
+            this.ModPanel.Controls.Add(this.labelDisabled);
+            this.ModPanel.Controls.Add(this.labelEnabled);
+            this.ModPanel.Controls.Add(this.BtnAdd);
+            this.ModPanel.Controls.Add(this.EnabledModListBox);
+            this.ModPanel.Controls.Add(this.DisabledModListBox);
+            this.ModPanel.Location = new System.Drawing.Point(273, 0);
+            this.ModPanel.Name = "ModPanel";
+            this.ModPanel.Size = new System.Drawing.Size(991, 681);
+            this.ModPanel.TabIndex = 1;
+            this.ModPanel.Visible = false;
+            // 
+            // BtnRemove
+            // 
+            this.BtnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRemove.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.BtnRemove.ForeColor = System.Drawing.Color.White;
+            this.BtnRemove.Location = new System.Drawing.Point(155, 623);
+            this.BtnRemove.Name = "BtnRemove";
+            this.BtnRemove.Size = new System.Drawing.Size(197, 46);
+            this.BtnRemove.TabIndex = 7;
+            this.BtnRemove.Text = "Remove";
+            this.BtnRemove.UseCompatibleTextRendering = true;
+            this.BtnRemove.UseVisualStyleBackColor = false;
+            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
+            // 
+            // labelDisabled
+            // 
+            this.labelDisabled.AutoSize = true;
+            this.labelDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.labelDisabled.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelDisabled.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.labelDisabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDisabled.ForeColor = System.Drawing.Color.White;
+            this.labelDisabled.Location = new System.Drawing.Point(12, 314);
+            this.labelDisabled.Name = "labelDisabled";
+            this.labelDisabled.Size = new System.Drawing.Size(195, 33);
+            this.labelDisabled.TabIndex = 6;
+            this.labelDisabled.Text = "Disabled Mods";
+            this.labelDisabled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelEnabled
+            // 
+            this.labelEnabled.AutoSize = true;
+            this.labelEnabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.labelEnabled.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelEnabled.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.labelEnabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnabled.ForeColor = System.Drawing.Color.White;
+            this.labelEnabled.Location = new System.Drawing.Point(12, 11);
+            this.labelEnabled.Name = "labelEnabled";
+            this.labelEnabled.Size = new System.Drawing.Size(188, 33);
+            this.labelEnabled.TabIndex = 5;
+            this.labelEnabled.Text = "Enabled Mods";
+            this.labelEnabled.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnAdd
+            // 
+            this.BtnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAdd.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.BtnAdd.ForeColor = System.Drawing.Color.White;
+            this.BtnAdd.Location = new System.Drawing.Point(17, 623);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(132, 46);
+            this.BtnAdd.TabIndex = 4;
+            this.BtnAdd.Text = "Add";
+            this.BtnAdd.UseCompatibleTextRendering = true;
+            this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            // 
+            // EnabledModListBox
+            // 
+            this.EnabledModListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.EnabledModListBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.EnabledModListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EnabledModListBox.Location = new System.Drawing.Point(17, 32);
+            this.EnabledModListBox.Name = "EnabledModListBox";
+            this.EnabledModListBox.Size = new System.Drawing.Size(956, 279);
+            this.EnabledModListBox.TabIndex = 0;
+            // 
+            // DisabledModListBox
+            // 
+            this.DisabledModListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.DisabledModListBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DisabledModListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DisabledModListBox.Location = new System.Drawing.Point(17, 335);
+            this.DisabledModListBox.Name = "DisabledModListBox";
+            this.DisabledModListBox.Size = new System.Drawing.Size(956, 282);
+            this.DisabledModListBox.TabIndex = 0;
             // 
             // Form1
             // 
@@ -249,6 +274,7 @@
         private System.Windows.Forms.Label labelEnabled;
         private System.Windows.Forms.Label labelDisabled;
         private System.Windows.Forms.Button BtnGitHub;
+        private System.Windows.Forms.Button BtnRemove;
     }
 }
 
