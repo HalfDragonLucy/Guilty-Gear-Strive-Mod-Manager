@@ -159,6 +159,7 @@ namespace Guilty_Gear_Strive_Mod_Manager
             BtnMods.Font = new Font(pfc.Families[0], BtnMods.Font.Size, BtnMods.Font.Style);
             BtnAdd.Font = new Font(pfc.Families[0], BtnAdd.Font.Size, BtnAdd.Font.Style);
             BtnRemove.Font = new Font(pfc.Families[0], BtnRemove.Font.Size, BtnRemove.Font.Style);
+            BtnRefresh.Font = new Font(pfc.Families[0], BtnRefresh.Font.Size, BtnRefresh.Font.Style);
             BtnGitHub.Font = new Font(pfc.Families[0], BtnGitHub.Font.Size, BtnGitHub.Font.Style);
             labelEnabled.Font = new Font(pfc.Families[0], labelEnabled.Font.Size, labelEnabled.Font.Style);
             labelDisabled.Font = new Font(pfc.Families[0], labelDisabled.Font.Size, labelDisabled.Font.Style);
@@ -203,7 +204,7 @@ namespace Guilty_Gear_Strive_Mod_Manager
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 string[] selected = dialog.FileNames.Select(p => p).ToArray();
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < selected.Length; i++)
                 {
                     DirectoryInfo dir = new DirectoryInfo(selected[i]);
                     CopyFilesRecursively(dir.FullName, $@"{packsPath}\~mods\{dir.Name}");
@@ -266,6 +267,7 @@ namespace Guilty_Gear_Strive_Mod_Manager
             CommonOpenFileDialog dialog = new CommonOpenFileDialog
             {
                 IsFolderPicker = true,
+                InitialDirectory = packsPath,
                 Title = "Select the mods you want to remove",
                 Multiselect = true,
             };
@@ -273,7 +275,7 @@ namespace Guilty_Gear_Strive_Mod_Manager
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 string[] selected = dialog.FileNames.Select(p => p).ToArray();
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < selected.Length; i++)
                 {
                     DirectoryInfo dir = new DirectoryInfo(selected[i]);
                     Directory.Delete(dir.FullName, true);
@@ -282,6 +284,12 @@ namespace Guilty_Gear_Strive_Mod_Manager
                 RefreshUI();
                 GetInstalledMods();
             }
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshUI();
+            GetInstalledMods();
         }
     }
 }

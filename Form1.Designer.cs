@@ -40,6 +40,7 @@
             this.BtnAdd = new System.Windows.Forms.Button();
             this.EnabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
             this.DisabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.ModPanel.SuspendLayout();
             this.SuspendLayout();
@@ -128,6 +129,7 @@
             // 
             this.ModPanel.BackColor = System.Drawing.Color.Transparent;
             this.ModPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ModPanel.Controls.Add(this.BtnRefresh);
             this.ModPanel.Controls.Add(this.BtnRemove);
             this.ModPanel.Controls.Add(this.labelDisabled);
             this.ModPanel.Controls.Add(this.labelEnabled);
@@ -236,6 +238,29 @@
             this.DisabledModListBox.Size = new System.Drawing.Size(956, 282);
             this.DisabledModListBox.TabIndex = 0;
             // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.BtnRefresh.ForeColor = System.Drawing.Color.White;
+            this.BtnRefresh.Location = new System.Drawing.Point(358, 623);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(197, 46);
+            this.BtnRefresh.TabIndex = 8;
+            this.BtnRefresh.Text = "Refresh";
+            this.BtnRefresh.UseCompatibleTextRendering = true;
+            this.BtnRefresh.UseVisualStyleBackColor = false;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -275,6 +300,7 @@
         private System.Windows.Forms.Label labelDisabled;
         private System.Windows.Forms.Button BtnGitHub;
         private System.Windows.Forms.Button BtnRemove;
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }
 
