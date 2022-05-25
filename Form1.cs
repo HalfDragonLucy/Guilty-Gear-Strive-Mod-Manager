@@ -260,6 +260,6 @@ namespace Guilty_Gear_Strive_Mod_Manager
             e.Effect = effects;
         }
 
-        private void BtnGitHub_Click(object sender, EventArgs e) => Process.Start("");
+        private void BtnGitHub_Click(object sender, EventArgs e) => Process.Start("https://github.com/HalfDragonLucy/Guilty-Gear-Strive-Mod-Manager");
     }
 }
