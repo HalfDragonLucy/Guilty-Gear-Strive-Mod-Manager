@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("GGS Mod Manager")]
 [assembly: AssemblyDescription("A simple Mod manager for Guilty Gear Strive")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("HalfDragonQueen")]
+[assembly: AssemblyCompany("HalfDragonLucy")]
 [assembly: AssemblyProduct("Guilty Gear Strive Mod Manager")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
