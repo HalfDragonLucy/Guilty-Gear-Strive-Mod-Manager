@@ -7,6 +7,7 @@ using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Guilty_Gear_Strive_Mod_Manager
@@ -160,7 +161,9 @@ namespace Guilty_Gear_Strive_Mod_Manager
             BtnAdd.Font = new Font(pfc.Families[0], BtnAdd.Font.Size, BtnAdd.Font.Style);
             BtnRemove.Font = new Font(pfc.Families[0], BtnRemove.Font.Size, BtnRemove.Font.Style);
             BtnRefresh.Font = new Font(pfc.Families[0], BtnRefresh.Font.Size, BtnRefresh.Font.Style);
+            BtnOptions.Font = new Font(pfc.Families[0], BtnOptions.Font.Size, BtnOptions.Font.Style);
             BtnGitHub.Font = new Font(pfc.Families[0], BtnGitHub.Font.Size, BtnGitHub.Font.Style);
+            
             labelEnabled.Font = new Font(pfc.Families[0], labelEnabled.Font.Size, labelEnabled.Font.Style);
             labelDisabled.Font = new Font(pfc.Families[0], labelDisabled.Font.Size, labelDisabled.Font.Style);
         }
@@ -188,7 +191,18 @@ namespace Guilty_Gear_Strive_Mod_Manager
                 null, labelDisabled, new object[] { true });
         }
 
-        private void BtnPlay_Click(object sender, EventArgs e) => Process.Start(@"steam://rungameid/1384160");
+        private void BtnPlay_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"steam://rungameid/1384160");
+            BtnPlay.Text = "Loading...";
+            BtnPlay.Font = new Font(pfc.Families[0], 40, FontStyle.Regular);
+
+            while (Process.GetProcessesByName("GGST-Win64-Shipping").Length == 0)
+            {
+                Thread.Sleep(100);
+            }
+            GameTimer.Start();
+        }
 
         private void BtnMods_Click(object sender, EventArgs e) => ModPanel.Visible = !ModPanel.Visible;
 
@@ -290,6 +304,28 @@ namespace Guilty_Gear_Strive_Mod_Manager
         {
             RefreshUI();
             GetInstalledMods();
+        }
+
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
+            if (Process.GetProcessesByName("GGST-Win64-Shipping").Length > 0)
+            {
+                Hide();
+            }
+            else
+            {
+                GameTimer.Stop();
+
+                BtnPlay.Text = "Play";
+                BtnPlay.Font = new Font(pfc.Families[0], 65, FontStyle.Bold);
+                Show();
+                BringToFront();
+            }
+        }
+
+        private void BtnOptions_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnPlay = new System.Windows.Forms.Button();
             this.BtnMods = new System.Windows.Forms.Button();
             this.BtnGitHub = new System.Windows.Forms.Button();
             this.ModPanel = new System.Windows.Forms.Panel();
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.BtnRemove = new System.Windows.Forms.Button();
             this.labelDisabled = new System.Windows.Forms.Label();
             this.labelEnabled = new System.Windows.Forms.Label();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.EnabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
             this.DisabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnRefresh = new System.Windows.Forms.Button();
+            this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.BtnOptions = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.ModPanel.SuspendLayout();
             this.SuspendLayout();
@@ -52,13 +55,13 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.BtnPlay);
             this.flowLayoutPanel1.Controls.Add(this.BtnMods);
+            this.flowLayoutPanel1.Controls.Add(this.BtnOptions);
             this.flowLayoutPanel1.Controls.Add(this.BtnGitHub);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(50);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 50, 0, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(267, 681);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
@@ -74,7 +77,7 @@
             this.BtnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 65F);
             this.BtnPlay.ForeColor = System.Drawing.Color.White;
-            this.BtnPlay.Location = new System.Drawing.Point(3, 53);
+            this.BtnPlay.Location = new System.Drawing.Point(3, 3);
             this.BtnPlay.Name = "BtnPlay";
             this.BtnPlay.Size = new System.Drawing.Size(263, 119);
             this.BtnPlay.TabIndex = 0;
@@ -95,7 +98,7 @@
             this.BtnMods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMods.Font = new System.Drawing.Font("Microsoft Sans Serif", 65F);
             this.BtnMods.ForeColor = System.Drawing.Color.White;
-            this.BtnMods.Location = new System.Drawing.Point(3, 178);
+            this.BtnMods.Location = new System.Drawing.Point(3, 128);
             this.BtnMods.Name = "BtnMods";
             this.BtnMods.Size = new System.Drawing.Size(263, 119);
             this.BtnMods.TabIndex = 1;
@@ -116,7 +119,7 @@
             this.BtnGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGitHub.Font = new System.Drawing.Font("Microsoft Sans Serif", 56F);
             this.BtnGitHub.ForeColor = System.Drawing.Color.White;
-            this.BtnGitHub.Location = new System.Drawing.Point(3, 303);
+            this.BtnGitHub.Location = new System.Drawing.Point(3, 378);
             this.BtnGitHub.Name = "BtnGitHub";
             this.BtnGitHub.Size = new System.Drawing.Size(263, 119);
             this.BtnGitHub.TabIndex = 2;
@@ -141,6 +144,29 @@
             this.ModPanel.Size = new System.Drawing.Size(991, 681);
             this.ModPanel.TabIndex = 1;
             this.ModPanel.Visible = false;
+            // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.BtnRefresh.ForeColor = System.Drawing.Color.White;
+            this.BtnRefresh.Location = new System.Drawing.Point(358, 623);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(197, 46);
+            this.BtnRefresh.TabIndex = 8;
+            this.BtnRefresh.Text = "Refresh";
+            this.BtnRefresh.UseCompatibleTextRendering = true;
+            this.BtnRefresh.UseVisualStyleBackColor = false;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
             // 
             // BtnRemove
             // 
@@ -238,28 +264,31 @@
             this.DisabledModListBox.Size = new System.Drawing.Size(956, 282);
             this.DisabledModListBox.TabIndex = 0;
             // 
-            // BtnRefresh
+            // GameTimer
             // 
-            this.BtnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRefresh.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.BtnRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.BtnRefresh.ForeColor = System.Drawing.Color.White;
-            this.BtnRefresh.Location = new System.Drawing.Point(358, 623);
-            this.BtnRefresh.Name = "BtnRefresh";
-            this.BtnRefresh.Size = new System.Drawing.Size(197, 46);
-            this.BtnRefresh.TabIndex = 8;
-            this.BtnRefresh.Text = "Refresh";
-            this.BtnRefresh.UseCompatibleTextRendering = true;
-            this.BtnRefresh.UseVisualStyleBackColor = false;
-            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            this.GameTimer.Interval = 500;
+            this.GameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
+            // 
+            // BtnOptions
+            // 
+            this.BtnOptions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnOptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOptions.FlatAppearance.BorderSize = 0;
+            this.BtnOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 49F);
+            this.BtnOptions.ForeColor = System.Drawing.Color.White;
+            this.BtnOptions.Location = new System.Drawing.Point(3, 253);
+            this.BtnOptions.Name = "BtnOptions";
+            this.BtnOptions.Size = new System.Drawing.Size(263, 119);
+            this.BtnOptions.TabIndex = 3;
+            this.BtnOptions.Text = "Options";
+            this.BtnOptions.UseCompatibleTextRendering = true;
+            this.BtnOptions.UseVisualStyleBackColor = false;
+            this.BtnOptions.Click += new System.EventHandler(this.BtnOptions_Click);
             // 
             // Form1
             // 
@@ -301,6 +330,8 @@
         private System.Windows.Forms.Button BtnGitHub;
         private System.Windows.Forms.Button BtnRemove;
         private System.Windows.Forms.Button BtnRefresh;
+        private System.Windows.Forms.Timer GameTimer;
+        private System.Windows.Forms.Button BtnOptions;
     }
 }
 
