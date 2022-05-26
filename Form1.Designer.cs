@@ -43,7 +43,7 @@
             this.EnabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
             this.DisabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
-            this.BtnOptions = new System.Windows.Forms.Button();
+            this.BtnOpen = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.ModPanel.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,6 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Controls.Add(this.BtnPlay);
             this.flowLayoutPanel1.Controls.Add(this.BtnMods);
-            this.flowLayoutPanel1.Controls.Add(this.BtnOptions);
             this.flowLayoutPanel1.Controls.Add(this.BtnGitHub);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -119,7 +118,7 @@
             this.BtnGitHub.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGitHub.Font = new System.Drawing.Font("Microsoft Sans Serif", 56F);
             this.BtnGitHub.ForeColor = System.Drawing.Color.White;
-            this.BtnGitHub.Location = new System.Drawing.Point(3, 378);
+            this.BtnGitHub.Location = new System.Drawing.Point(3, 253);
             this.BtnGitHub.Name = "BtnGitHub";
             this.BtnGitHub.Size = new System.Drawing.Size(263, 119);
             this.BtnGitHub.TabIndex = 2;
@@ -132,6 +131,7 @@
             // 
             this.ModPanel.BackColor = System.Drawing.Color.Transparent;
             this.ModPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ModPanel.Controls.Add(this.BtnOpen);
             this.ModPanel.Controls.Add(this.BtnRefresh);
             this.ModPanel.Controls.Add(this.BtnRemove);
             this.ModPanel.Controls.Add(this.labelDisabled);
@@ -267,28 +267,30 @@
             // GameTimer
             // 
             this.GameTimer.Interval = 500;
-            this.GameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
+            this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
-            // BtnOptions
+            // BtnOpen
             // 
-            this.BtnOptions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnOptions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnOptions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnOptions.FlatAppearance.BorderSize = 0;
-            this.BtnOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 49F);
-            this.BtnOptions.ForeColor = System.Drawing.Color.White;
-            this.BtnOptions.Location = new System.Drawing.Point(3, 253);
-            this.BtnOptions.Name = "BtnOptions";
-            this.BtnOptions.Size = new System.Drawing.Size(263, 119);
-            this.BtnOptions.TabIndex = 3;
-            this.BtnOptions.Text = "Options";
-            this.BtnOptions.UseCompatibleTextRendering = true;
-            this.BtnOptions.UseVisualStyleBackColor = false;
-            this.BtnOptions.Click += new System.EventHandler(this.BtnOptions_Click);
+            this.BtnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnOpen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOpen.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.BtnOpen.ForeColor = System.Drawing.Color.White;
+            this.BtnOpen.Location = new System.Drawing.Point(561, 623);
+            this.BtnOpen.Name = "BtnOpen";
+            this.BtnOpen.Size = new System.Drawing.Size(255, 46);
+            this.BtnOpen.TabIndex = 9;
+            this.BtnOpen.Text = "Open Folder";
+            this.BtnOpen.UseCompatibleTextRendering = true;
+            this.BtnOpen.UseVisualStyleBackColor = false;
+            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
             // Form1
             // 
@@ -331,7 +333,7 @@
         private System.Windows.Forms.Button BtnRemove;
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Timer GameTimer;
-        private System.Windows.Forms.Button BtnOptions;
+        private System.Windows.Forms.Button BtnOpen;
     }
 }
 
