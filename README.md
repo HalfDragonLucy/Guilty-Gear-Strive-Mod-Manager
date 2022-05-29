@@ -29,14 +29,14 @@ The program will remember your selection.
 
 ## Roadmap
 
-- Change UI to be per-character for a clearer view.
-- Add a "Options" tab.
-- Game Location Change.
-- Font Change.
-- Background Change.
-- Transparancy.
-- Color Theme.
-- Add a "Play With" tab for external programs to run at the same time. (ex: GG-Struggle) 
+- Change UI to be per-character for a clearer view
+- Add a "Options" tab
+- Game Location Change
+- Font Change
+- Background Change
+- Transparancy
+- Color Theme
+- Add a "Play With" tab
 
 
 
