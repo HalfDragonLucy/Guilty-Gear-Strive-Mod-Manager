@@ -1,57 +1,35 @@
-name: .NET Framework Desktop
+name: GuiltyGearStriveModManager Build
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: master
 
 jobs:
-
   build:
-
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
-    runs-on: windows-latest  
-
-    env:
-      Solution_Name: Guilty Gear Strive Mod Manager.sln                  
+    runs-on: windows-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+    - uses: actions/checkout@v2
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
 
-    # Install the .NET Core workload
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 4.7.2
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+      
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Create Build Directory
+      run: mkdir _build
 
-    # Execute all unit tests in the solution
-    - name: Execute unit tests
-      run: dotnet test
-
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
-
-    # Decode the base 64 encoded pfx and save the Signing_Certificate
-    - name: Decode the pfx
+    - name: Build Solution
       run: |
-        $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-        $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
-        [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
-
-    # Remove the pfx
-    - name: Remove the pfx
-      run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
+        msbuild.exe Guilty Gear Strive Mod Manager.sln /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: GuiltyGearStriveModManager
+        path: "./_build"        
+      
