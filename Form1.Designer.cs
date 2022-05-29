@@ -35,15 +35,14 @@
             this.BtnMods = new System.Windows.Forms.Button();
             this.BtnGitHub = new System.Windows.Forms.Button();
             this.ModPanel = new System.Windows.Forms.Panel();
+            this.BtnOpen = new System.Windows.Forms.Button();
             this.BtnRefresh = new System.Windows.Forms.Button();
-            this.BtnRemove = new System.Windows.Forms.Button();
             this.labelDisabled = new System.Windows.Forms.Label();
             this.labelEnabled = new System.Windows.Forms.Label();
             this.BtnAdd = new System.Windows.Forms.Button();
             this.EnabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
             this.DisabledModListBox = new System.Windows.Forms.FlowLayoutPanel();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
-            this.BtnOpen = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.ModPanel.SuspendLayout();
             this.SuspendLayout();
@@ -133,7 +132,6 @@
             this.ModPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ModPanel.Controls.Add(this.BtnOpen);
             this.ModPanel.Controls.Add(this.BtnRefresh);
-            this.ModPanel.Controls.Add(this.BtnRemove);
             this.ModPanel.Controls.Add(this.labelDisabled);
             this.ModPanel.Controls.Add(this.labelEnabled);
             this.ModPanel.Controls.Add(this.BtnAdd);
@@ -144,6 +142,29 @@
             this.ModPanel.Size = new System.Drawing.Size(991, 681);
             this.ModPanel.TabIndex = 1;
             this.ModPanel.Visible = false;
+            // 
+            // BtnOpen
+            // 
+            this.BtnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnOpen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOpen.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.BtnOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
+            this.BtnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.BtnOpen.ForeColor = System.Drawing.Color.White;
+            this.BtnOpen.Location = new System.Drawing.Point(358, 623);
+            this.BtnOpen.Name = "BtnOpen";
+            this.BtnOpen.Size = new System.Drawing.Size(255, 46);
+            this.BtnOpen.TabIndex = 9;
+            this.BtnOpen.Text = "Open Folder";
+            this.BtnOpen.UseCompatibleTextRendering = true;
+            this.BtnOpen.UseVisualStyleBackColor = false;
+            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
             // BtnRefresh
             // 
@@ -159,7 +180,7 @@
             this.BtnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
             this.BtnRefresh.ForeColor = System.Drawing.Color.White;
-            this.BtnRefresh.Location = new System.Drawing.Point(358, 623);
+            this.BtnRefresh.Location = new System.Drawing.Point(155, 623);
             this.BtnRefresh.Name = "BtnRefresh";
             this.BtnRefresh.Size = new System.Drawing.Size(197, 46);
             this.BtnRefresh.TabIndex = 8;
@@ -167,29 +188,6 @@
             this.BtnRefresh.UseCompatibleTextRendering = true;
             this.BtnRefresh.UseVisualStyleBackColor = false;
             this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
-            // 
-            // BtnRemove
-            // 
-            this.BtnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnRemove.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.BtnRemove.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnRemove.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.BtnRemove.ForeColor = System.Drawing.Color.White;
-            this.BtnRemove.Location = new System.Drawing.Point(155, 623);
-            this.BtnRemove.Name = "BtnRemove";
-            this.BtnRemove.Size = new System.Drawing.Size(197, 46);
-            this.BtnRemove.TabIndex = 7;
-            this.BtnRemove.Text = "Remove";
-            this.BtnRemove.UseCompatibleTextRendering = true;
-            this.BtnRemove.UseVisualStyleBackColor = false;
-            this.BtnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // labelDisabled
             // 
@@ -269,29 +267,6 @@
             this.GameTimer.Interval = 500;
             this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
-            // BtnOpen
-            // 
-            this.BtnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnOpen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnOpen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnOpen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnOpen.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.BtnOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(6)))), ((int)(((byte)(3)))));
-            this.BtnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
-            this.BtnOpen.ForeColor = System.Drawing.Color.White;
-            this.BtnOpen.Location = new System.Drawing.Point(561, 623);
-            this.BtnOpen.Name = "BtnOpen";
-            this.BtnOpen.Size = new System.Drawing.Size(255, 46);
-            this.BtnOpen.TabIndex = 9;
-            this.BtnOpen.Text = "Open Folder";
-            this.BtnOpen.UseCompatibleTextRendering = true;
-            this.BtnOpen.UseVisualStyleBackColor = false;
-            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
-            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -330,7 +305,6 @@
         private System.Windows.Forms.Label labelEnabled;
         private System.Windows.Forms.Label labelDisabled;
         private System.Windows.Forms.Button BtnGitHub;
-        private System.Windows.Forms.Button BtnRemove;
         private System.Windows.Forms.Button BtnRefresh;
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.Button BtnOpen;
