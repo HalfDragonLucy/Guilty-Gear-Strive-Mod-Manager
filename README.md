@@ -33,14 +33,6 @@ The program will remember your selection.
 ## Roadmap
 
 - Change UI to be per-character for a clearer view
-- Add a "Options" tab [x]
-- Game Location Change [x]
 - Font Change
 - Background Change
-- ~~Transparency~~
 - Color Theme
-- Add a "Play With" tab [x]
-
-
-
-
