@@ -263,6 +263,11 @@ namespace Guilty_Gear_Strive_Mod_Manager
                     OptionsListStartWith.Items.Add(process);
                 }
             }
+
+            if(Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.Count == 0)
+            {
+                BtnPlayWith.Visible = false;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -504,6 +509,11 @@ namespace Guilty_Gear_Strive_Mod_Manager
                 Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.Add(name);
                 Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
                 OptionsListStartWith.Items.Add(name);
+
+                if (Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.Count > 0)
+                {
+                    BtnPlayWith.Visible = true;
+                }
             }
         }
 
@@ -517,6 +527,11 @@ namespace Guilty_Gear_Strive_Mod_Manager
                 Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory.RemoveAt(index);
                 Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.RemoveAt(index);
                 Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
+            }
+
+            if (Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.Count == 0)
+            {
+                BtnPlayWith.Visible = false;
             }
         }
 
