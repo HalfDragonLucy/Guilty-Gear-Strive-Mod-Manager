@@ -26,7 +26,7 @@ The program will remember your selection.
 ## Screenshots
 
 ![](https://cdn.discordapp.com/attachments/871532487581532190/980629125263937596/unknown.png)
-![](https://cdn.discordapp.com/attachments/871532487581532190/980629167920001044/unknown.png)
+![](https://cdn.discordapp.com/attachments/871532487581532190/980635365742379018/unknown.png)
 ![](https://cdn.discordapp.com/attachments/871532487581532190/980629256956698674/unknown.png)
 ![](https://cdn.discordapp.com/attachments/871532487581532190/980631085895536691/unknown.png)
 
