@@ -511,10 +511,12 @@ namespace Guilty_Gear_Strive_Mod_Manager
         {
             if (OptionsListStartWith.SelectedItem != null)
             {
-                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.Remove(OptionsListStartWith.SelectedItem.ToString());
-                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory.Remove(Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory.Cast<string>().FirstOrDefault(s => s.Contains(OptionsListStartWith.SelectedItem.ToString().Replace(".exe", ""))));
+                int index = OptionsListStartWith.SelectedIndex;
+                
+                OptionsListStartWith.Items.RemoveAt(index); 
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory.RemoveAt(index);
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.RemoveAt(index);
                 Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
-                OptionsListStartWith.Items.Remove(OptionsListStartWith.SelectedItem);
             }
         }
 
