@@ -1,6 +1,7 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
@@ -12,13 +13,13 @@ using System.Windows.Forms;
 
 namespace Guilty_Gear_Strive_Mod_Manager
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private readonly PrivateFontCollection pfc = new PrivateFontCollection();
         private string packsPath = string.Empty;
         private readonly List<string> enabledMods = new List<string>();
         private readonly List<string> disabledMods = new List<string>();
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -66,15 +67,15 @@ namespace Guilty_Gear_Strive_Mod_Manager
                 contextMenu.Items.AddRange(new ToolStripItem[] { delete, rename });
                 btn.ContextMenuStrip = contextMenu;
 
-                delete.Click += (sender, e) => DeleteMod(sender, e, btn.Tag.ToString());
-                rename.Click += (sender, e) => RenameMod(sender, e, btn.Tag.ToString());
+                delete.Click += (sender, e) => DeleteMod(btn.Tag.ToString());
+                rename.Click += (sender, e) => RenameMod(btn.Tag.ToString());
                 btn.Click += new EventHandler(ModButton_Click);
 
                 flow.Controls.Add(btn);
             }
         }
 
-        private void RenameMod(object sender, EventArgs e, string tag)
+        private void RenameMod(string tag)
         {
             string input = tag;
             ShowInputDialog(ref input);
@@ -146,7 +147,7 @@ namespace Guilty_Gear_Strive_Mod_Manager
             return result;
         }
 
-        private void DeleteMod(object sender, EventArgs e, string tag)
+        private void DeleteMod(string tag)
         {
             string enabledModPath = $@"{packsPath}\~mods\{tag}";
             string disabledModPath = $@"{packsPath}\~disabled\{tag}";
@@ -224,7 +225,7 @@ namespace Guilty_Gear_Strive_Mod_Manager
 
         private void GetSettings()
         {
-            if (Properties.Settings.Default.PacksPath == string.Empty)
+            if (Guilty_Gear_Strive_MM.Properties.Settings.Default.PacksPath == string.Empty)
             {
                 CommonOpenFileDialog dialog = new CommonOpenFileDialog
                 {
@@ -233,8 +234,8 @@ namespace Guilty_Gear_Strive_Mod_Manager
                 };
                 if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                 {
-                    Properties.Settings.Default.PacksPath = $@"{dialog.FileName}\RED\Content\Paks";
-                    Properties.Settings.Default.Save();
+                    Guilty_Gear_Strive_MM.Properties.Settings.Default.PacksPath = $@"{dialog.FileName}\RED\Content\Paks";
+                    Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
                 }
                 else
                 {
@@ -244,17 +245,33 @@ namespace Guilty_Gear_Strive_Mod_Manager
                 }
             }
 
-            packsPath = Properties.Settings.Default.PacksPath;
+            FeedOptions();
             GenerateModFolders();
+        }
+
+        private void FeedOptions()
+        {
+            packsPath = Guilty_Gear_Strive_MM.Properties.Settings.Default.PacksPath;
+            CheckHideOnPlay.Checked = Guilty_Gear_Strive_MM.Properties.Settings.Default.HideOnPlay;
+            OptionsPackPath.Text = packsPath;
+            if (Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName != null)
+            {
+                StringCollection list = Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    string process = list[i];
+                    OptionsListStartWith.Items.Add(process);
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             DoubleBufferInitialize();
-            SetFonts();
+            SetGuiltyGearFont();
         }
 
-        private void SetFonts()
+        private void SetGuiltyGearFont()
         {
             BtnPlay.Font = new Font(pfc.Families[0], BtnPlay.Font.Size, BtnPlay.Font.Style);
             BtnMods.Font = new Font(pfc.Families[0], BtnMods.Font.Size, BtnMods.Font.Style);
@@ -262,9 +279,22 @@ namespace Guilty_Gear_Strive_Mod_Manager
             BtnOpen.Font = new Font(pfc.Families[0], BtnOpen.Font.Size, BtnOpen.Font.Style);
             BtnRefresh.Font = new Font(pfc.Families[0], BtnRefresh.Font.Size, BtnRefresh.Font.Style);
             BtnGitHub.Font = new Font(pfc.Families[0], BtnGitHub.Font.Size, BtnGitHub.Font.Style);
+            BtnPlayWith.Font = new Font(pfc.Families[0], BtnPlayWith.Font.Size, BtnPlayWith.Font.Style);
+            BtnOptions.Font = new Font(pfc.Families[0], BtnOptions.Font.Size, BtnOptions.Font.Style);
+            BtnGameBanana.Font = new Font(pfc.Families[0], BtnGameBanana.Font.Size, BtnGameBanana.Font.Style);
+            
+            ProcessAdd.Font = new Font(pfc.Families[0], ProcessAdd.Font.Size, ProcessAdd.Font.Style);
+            ProcessRemove.Font = new Font(pfc.Families[0], ProcessRemove.Font.Size, ProcessRemove.Font.Style);
 
             labelEnabled.Font = new Font(pfc.Families[0], labelEnabled.Font.Size, labelEnabled.Font.Style);
             labelDisabled.Font = new Font(pfc.Families[0], labelDisabled.Font.Size, labelDisabled.Font.Style);
+            labelOptions.Font = new Font(pfc.Families[0], labelOptions.Font.Size, labelOptions.Font.Style);
+            labelGamePath.Font = new Font(pfc.Families[0], labelGamePath.Font.Size, labelGamePath.Font.Style);
+            labelHideForm.Font = new Font(pfc.Families[0], CheckHideOnPlay.Font.Size, CheckHideOnPlay.Font.Style);
+            labelStartWith.Font = new Font(pfc.Families[0], labelStartWith.Font.Size, labelStartWith.Font.Style);
+
+            OptionsPackPath.Font = new Font(pfc.Families[0], OptionsPackPath.Font.Size, OptionsPackPath.Font.Style);
+            OptionsListStartWith.Font = new Font(pfc.Families[0], OptionsListStartWith.Font.Size, OptionsListStartWith.Font.Style);
         }
 
         private void DoubleBufferInitialize()
@@ -272,6 +302,10 @@ namespace Guilty_Gear_Strive_Mod_Manager
             typeof(Panel).InvokeMember("DoubleBuffered",
                 BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
                 null, ModPanel, new object[] { true });
+
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                 BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+                 null, OptionsPanel, new object[] { true });
 
             typeof(Panel).InvokeMember("DoubleBuffered",
                 BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
@@ -288,6 +322,9 @@ namespace Guilty_Gear_Strive_Mod_Manager
             typeof(Panel).InvokeMember("DoubleBuffered",
                 BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
                 null, labelDisabled, new object[] { true });
+            typeof(Panel).InvokeMember("DoubleBuffered",
+    BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+    null, labelDisabled, new object[] { true });
         }
 
         private void BtnPlay_Click(object sender, EventArgs e)
@@ -296,7 +333,10 @@ namespace Guilty_Gear_Strive_Mod_Manager
             BtnPlay.Text = "Loading...";
             BtnPlay.Font = new Font(pfc.Families[0], 40, FontStyle.Regular);
 
-            Hide();
+            if (Guilty_Gear_Strive_MM.Properties.Settings.Default.HideOnPlay)
+            {
+                Hide();
+            }
             while (Process.GetProcessesByName("GGST-Win64-Shipping").Length == 0)
             {
                 Thread.Sleep(2000);
@@ -304,7 +344,11 @@ namespace Guilty_Gear_Strive_Mod_Manager
             GameTimer.Start();
         }
 
-        private void BtnMods_Click(object sender, EventArgs e) => ModPanel.Visible = !ModPanel.Visible;
+        private void BtnMods_Click(object sender, EventArgs e)
+        {
+            ModPanel.Visible = true;
+            OptionsPanel.Visible = false;
+        }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
@@ -384,11 +428,96 @@ namespace Guilty_Gear_Strive_Mod_Manager
 
                 BtnPlay.Text = "Play";
                 BtnPlay.Font = new Font(pfc.Families[0], 65, FontStyle.Bold);
-                Show();
-                BringToFront();
+                if (Guilty_Gear_Strive_MM.Properties.Settings.Default.HideOnPlay)
+                {
+                    Show();
+                    BringToFront();
+                }
             }
         }
 
         private void BtnOpen_Click(object sender, EventArgs e) => Process.Start(packsPath);
+
+        private void BtnPlayWith_Click(object sender, EventArgs e)
+        {
+            if (Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory != null)
+            {
+                StringCollection procsDir = Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory;
+                StringCollection procsName = Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName;
+
+                for (int i = 0; i < procsDir.Count; i++)
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo(procsName[i])
+                    {
+                        WorkingDirectory = procsDir[i],
+                        UseShellExecute = true
+                    };
+
+                    Process proc = Process.Start(startInfo);
+                }
+
+                BtnPlay_Click(sender, e);
+            }
+        }
+
+        private void BtnOptions_Click(object sender, EventArgs e)
+        {
+            ModPanel.Visible = false;
+            OptionsPanel.Visible = true;
+        }
+
+        private void CheckHideOnPlay_CheckedChanged(object sender, EventArgs e)
+        {
+            Guilty_Gear_Strive_MM.Properties.Settings.Default.HideOnPlay = CheckHideOnPlay.Checked;
+            Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
+        }
+
+        private void OptionsPackPath_TextChanged(object sender, EventArgs e)
+        {
+            Guilty_Gear_Strive_MM.Properties.Settings.Default.PacksPath = OptionsPackPath.Text;
+            Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
+        }
+
+        private void ProcessAdd_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog
+            {
+                Title = "Select the executable to add to the list",
+                Filter = "Executable files (*.exe)|*.exe",
+                Multiselect = false,
+            };
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                if (Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory == null)
+                {
+                    Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory = new StringCollection();
+                }
+                if (Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName == null)
+                {
+                    Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName = new StringCollection();
+                }
+
+                string path = Path.GetDirectoryName(dialog.FileName);
+                string name = Path.GetFileName(dialog.FileName);
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory.Add(path);
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.Add(name);
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
+                OptionsListStartWith.Items.Add(name);
+            }
+        }
+
+        private void ProcessRemove_Click(object sender, EventArgs e)
+        {
+            if (OptionsListStartWith.SelectedItem != null)
+            {
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesName.Remove(OptionsListStartWith.SelectedItem.ToString());
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory.Remove(Guilty_Gear_Strive_MM.Properties.Settings.Default.ProcessesDirectory.Cast<string>().FirstOrDefault(s => s.Contains(OptionsListStartWith.SelectedItem.ToString().Replace(".exe", ""))));
+                Guilty_Gear_Strive_MM.Properties.Settings.Default.Save();
+                OptionsListStartWith.Items.Remove(OptionsListStartWith.SelectedItem);
+            }
+        }
+
+        private void BtnGameBanana_Click(object sender, EventArgs e) => Process.Start("https://gamebanana.com/games/11534");
     }
 }

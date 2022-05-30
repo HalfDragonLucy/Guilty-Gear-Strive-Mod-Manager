@@ -20,23 +20,26 @@ The program will remember your selection.
 - Drag & Drop Mods
 - Remove & Rename Mods
 - Start The Game
+- Start The Game Along With Other Executables
 - Hide While You Play
 
 ## Screenshots
 
-![](https://user-images.githubusercontent.com/62443788/170887358-ed649125-a20b-4900-ba3c-53fe923396bb.png)
-![](https://cdn.discordapp.com/attachments/871532487581532190/980547261635371058/unknown.png)
+![](https://cdn.discordapp.com/attachments/871532487581532190/980629125263937596/unknown.png)
+![](https://cdn.discordapp.com/attachments/871532487581532190/980629167920001044/unknown.png)
+![](https://cdn.discordapp.com/attachments/871532487581532190/980629256956698674/unknown.png)
+![](https://cdn.discordapp.com/attachments/871532487581532190/980631085895536691/unknown.png)
 
 ## Roadmap
 
 - Change UI to be per-character for a clearer view
-- Add a "Options" tab
-- Game Location Change
+- Add a "Options" tab [x]
+- Game Location Change [x]
 - Font Change
 - Background Change
-- Transparancy
+- ~~Transparency~~
 - Color Theme
-- Add a "Play With" tab
+- Add a "Play With" tab [x]
 
 
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Guilty_Gear_Strive_Mod_Manager.Properties {
+namespace Guilty_Gear_Strive_MM.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -32,6 +32,40 @@ namespace Guilty_Gear_Strive_Mod_Manager.Properties {
             }
             set {
                 this["PacksPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool HideOnPlay {
+            get {
+                return ((bool)(this["HideOnPlay"]));
+            }
+            set {
+                this["HideOnPlay"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection ProcessesDirectory {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ProcessesDirectory"]));
+            }
+            set {
+                this["ProcessesDirectory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Specialized.StringCollection ProcessesName {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["ProcessesName"]));
+            }
+            set {
+                this["ProcessesName"] = value;
             }
         }
     }
