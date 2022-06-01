@@ -10,7 +10,7 @@ A Simple Mod Manager for the game: GUILTY GEAR -STRIVE-
 ## Installation
 
 Download the `Release.zip` And extract the content into a folder.
-Run the `Guilty Gear Strive Mod Manager.exe` And select your `GUILTY GEAR -STRIVE-` Executable directory.
+Run the `Guilty Gear Strive Mod Manager.exe` And select your `GUILTY GEAR -STRIVE-` Paks directory.
 The program will remember your selection.
     
 ## Features
