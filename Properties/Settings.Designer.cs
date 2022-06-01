@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Guilty_Gear_Strive_MM.Properties {
+namespace Guilty_Gear_Strive_Mod_Manager.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -20,52 +20,6 @@ namespace Guilty_Gear_Strive_MM.Properties {
         public static Settings Default {
             get {
                 return defaultInstance;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string PacksPath {
-            get {
-                return ((string)(this["PacksPath"]));
-            }
-            set {
-                this["PacksPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool HideOnPlay {
-            get {
-                return ((bool)(this["HideOnPlay"]));
-            }
-            set {
-                this["HideOnPlay"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection ProcessesDirectory {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["ProcessesDirectory"]));
-            }
-            set {
-                this["ProcessesDirectory"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection ProcessesName {
-            get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["ProcessesName"]));
-            }
-            set {
-                this["ProcessesName"] = value;
             }
         }
     }

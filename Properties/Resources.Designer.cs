@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Guilty_Gear_Strive_MM.Properties {
+namespace Guilty_Gear_Strive_Mod_Manager.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Guilty_Gear_Strive_MM.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Guilty_Gear_Strive_MM.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Guilty_Gear_Strive_Mod_Manager.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

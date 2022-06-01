@@ -1,22 +1,23 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Guilty_Gear_Strive_MM
+namespace Guilty_Gear_Strive_Mod_Manager
 {
-    internal class MyCheckBox : CheckBox
+    public class ScalableCheckBox : CheckBox
     {
-        public MyCheckBox() => TextAlign = ContentAlignment.MiddleLeft;
+        public ScalableCheckBox() => TextAlign = ContentAlignment.MiddleLeft;
         public override bool AutoSize
         {
             get => base.AutoSize;
-            set => base.AutoSize = false;
+
+            set => base.AutoSize = value;
         }
-        protected override void OnPaint(PaintEventArgs e)
+        protected override void OnPaint(PaintEventArgs pevent)
         {
-            base.OnPaint(e);
+            base.OnPaint(pevent);
             int h = ClientSize.Height - 2;
             Rectangle rc = new Rectangle(new Point(0, 1), new Size(h, h));
-            ControlPaint.DrawCheckBox(e.Graphics, rc,
+            ControlPaint.DrawCheckBox(pevent.Graphics, rc,
                 Checked ? ButtonState.Checked : ButtonState.Normal);
         }
 
