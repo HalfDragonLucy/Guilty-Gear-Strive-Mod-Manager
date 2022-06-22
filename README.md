@@ -5,6 +5,7 @@
 ![](https://img.shields.io/github/issues/HalfDragonLucy/Guilty-Gear-Strive-Mod-Manager) 
 ![](https://img.shields.io/github/license/HalfDragonLucy/Guilty-Gear-Strive-Mod-Manager)
 
+# ⚠ This project is getting moved into a bigger project ⚠
 A Simple Mod Manager for the game: GUILTY GEAR -STRIVE-
 
 ## Installation
