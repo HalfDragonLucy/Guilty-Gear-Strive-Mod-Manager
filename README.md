@@ -30,8 +30,3 @@ The program will remember your selection.
 ![](https://cdn.discordapp.com/attachments/871532487581532190/981699050770423868/unknown.png)
 ![](https://cdn.discordapp.com/attachments/871532487581532190/981699085759303690/unknown.png)
 ![](https://cdn.discordapp.com/attachments/871532487581532190/981698855445864538/unknown.png)
-
-## Roadmap
-
-- Change UI to be per-character for a clearer view
-
